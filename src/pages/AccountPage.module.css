@@ -1,0 +1,322 @@
+.pageHead {
+  background: var(--obsidian); padding: 56px 80px 44px;
+}
+.pageHeadInner {
+  display: flex; align-items: center; gap: 28px;
+  animation: fadeUp .7s cubic-bezier(.25,.46,.45,.94) both;
+}
+@keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+.avatarCircle {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: rgba(201,168,76,.2); border: 1px solid rgba(201,168,76,.4);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-serif); font-size: 26px; font-weight: 400;
+  color: var(--oro); flex-shrink: 0;
+}
+.eyebrow {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--oro); margin-bottom: 8px;
+}
+.pageTitle {
+  font-family: var(--ff-serif); font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 300; color: var(--ivory); line-height: 1.1;
+}
+.memberSince { font-size: 12px; color: rgba(245,240,232,.45); margin-top: 5px; }
+
+/* Tabs */
+.tabBar {
+  display: flex; gap: 0;
+  background: var(--ivory); border-bottom: 1px solid var(--border);
+  padding: 0 80px;
+}
+.tab {
+  padding: 17px 20px; font-size: 12px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--stone);
+  border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
+}
+.tab:hover { color: var(--obsidian); }
+.tabActive { color: var(--obsidian) !important; border-bottom-color: var(--oro) !important; }
+
+/* Overview */
+.overviewGrid {
+  display: grid; grid-template-columns: repeat(4,1fr) 2fr;
+  gap: 20px; align-items: start;
+}
+.statCard {
+  padding: 28px; background: var(--ivory); border: 1px solid var(--border);
+  text-align: center;
+}
+.statIcon { font-size: 24px; margin-bottom: 12px; }
+.statNum { font-family: var(--ff-serif); font-size: 32px; font-weight: 300; color: var(--oro); line-height: 1; margin-bottom: 6px; }
+.statLabel { font-size: 11px; letter-spacing: .08em; color: var(--stone); }
+
+.recentOrders {
+  grid-column: 5;
+  padding: 28px; background: var(--ivory); border: 1px solid var(--border);
+}
+.sectionHead { font-family: var(--ff-serif); font-size: 18px; font-weight: 400; margin-bottom: 20px; }
+.orderRow {
+  display: flex; justify-content: space-between; align-items: start;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.orderRow:last-child { border-bottom: none; }
+.orderId { font-size: 12px; font-weight: 500; margin-bottom: 4px; }
+.orderItems { font-size: 11px; color: var(--stone); line-height: 1.5; }
+.orderRight { text-align: right; flex-shrink: 0; margin-left: 16px; }
+.orderStatus { font-size: 10px; padding: 2px 8px; background: #eaf7f0; color: #2d7a5a; border-radius: 10px; margin-bottom: 4px; display: inline-block; }
+.orderTotal { font-size: 13px; font-weight: 500; }
+
+/* Orders */
+.ordersWrap {}
+.sectionTitle { font-family: var(--ff-serif); font-size: 26px; font-weight: 400; margin-bottom: 28px; }
+.orderCard {
+  padding: 24px; background: var(--ivory); border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.orderCardHead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.orderDate { font-size: 12px; color: var(--stone); margin-left: 12px; }
+.orderCardRight { display: flex; align-items: center; gap: 16px; }
+.orderCardItems { margin-bottom: 16px; }
+.orderItem { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--stone); margin-bottom: 5px; }
+.orderItemDot { width: 4px; height: 4px; border-radius: 50%; background: var(--oro); flex-shrink: 0; }
+.reorderBtn {
+  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 8px 20px; border: 1px solid var(--border); border-radius: 1px;
+  color: var(--stone); transition: border-color .2s, color .2s;
+}
+.reorderBtn:hover { border-color: var(--obsidian); color: var(--obsidian); }
+
+/* ── Wishlist ── */
+.wishlistWrap {}
+.emptyWishlist {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 80px 0; gap: 12px; color: var(--stone);
+}
+.emptyIcon { font-size: 36px; opacity: .3; color: var(--oro); }
+.emptyWishlist p { font-size: 14px; }
+
+.wishGrid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.wishCard {
+  background: var(--ivory);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow .25s;
+}
+.wishCard:hover { box-shadow: 0 8px 32px rgba(28,25,23,.08); }
+
+.wishImg {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--alabaster);
+  cursor: pointer;
+}
+.wishImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .55s cubic-bezier(.25,.46,.45,.94);
+}
+.wishCard:hover .wishImg img { transform: scale(1.05); }
+.wishImgOverlay {
+  position: absolute; inset: 0;
+  background: rgba(28,25,23,.45);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--oro-lt);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.wishImg:hover .wishImgOverlay { opacity: 1; }
+
+.wishInfo { padding: 16px; }
+.wishMeta { margin-bottom: 2px; }
+.wishName {
+  font-family: var(--ff-serif); font-size: 16px; font-weight: 400;
+  line-height: 1.25; margin-bottom: 5px;
+}
+.wishDesc { font-size: 11px; color: var(--stone); line-height: 1.5; margin-bottom: 8px; }
+.wishPriceRow { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.wishPrice { font-size: 15px; font-weight: 500; }
+.wishCompare { font-size: 12px; color: var(--stone); text-decoration: line-through; }
+.wishStars { font-size: 11px; color: var(--oro); margin-bottom: 12px; letter-spacing: 1px; }
+.wishReviews { font-size: 11px; color: var(--stone); letter-spacing: 0; margin-left: 4px; }
+
+.wishActions { display: flex; gap: 8px; }
+.wishAtc {
+  flex: 1; padding: 10px 0; text-align: center;
+  background: var(--obsidian); color: var(--oro-lt);
+  font-size: 10px; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; border-radius: 1px;
+  transition: background .2s;
+}
+.wishAtc:hover { background: #2d2926; }
+.wishView {
+  padding: 10px 14px;
+  border: 1px solid var(--border); border-radius: 1px;
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--stone); transition: border-color .2s, color .2s;
+}
+.wishView:hover { border-color: var(--obsidian); color: var(--obsidian); }
+
+/* Settings */
+.settingsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+.settingsCard { padding: 28px; background: var(--ivory); border: 1px solid var(--border); }
+.settingsHead { font-family: var(--ff-serif); font-size: 20px; font-weight: 400; margin-bottom: 20px; }
+.settingsField { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.settingsField label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--stone); }
+.settingsInput {
+  padding: 11px 14px; border: 1px solid var(--border); background: var(--alabaster);
+  font-size: 14px; color: var(--obsidian); outline: none; border-radius: 1px;
+  transition: border-color .2s;
+}
+.settingsInput:focus { border-color: var(--obsidian); }
+.prefRow {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 0; border-bottom: 1px solid var(--border); cursor: pointer;
+  font-size: 13px; color: var(--stone);
+}
+.prefRow:last-child { border-bottom: none; }
+.prefCheck { accent-color: var(--oro); width: 14px; height: 14px; cursor: pointer; }
+.logoutBtn {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
+  color: #b91c1c; border: 1px solid #fecaca; padding: 10px 20px; border-radius: 1px;
+  transition: background .2s;
+}
+.logoutBtn:hover { background: #fef2f2; }
+
+/* Skills overview (Overview tab) */
+.skillsOverview {
+  grid-column: 5;
+  padding: 28px; background: var(--ivory); border: 1px solid var(--border);
+}
+.skillPills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.skillPill {
+  font-size: 11px; padding: 4px 12px;
+  background: var(--alabaster); color: var(--stone);
+  border: 1px solid var(--border); border-radius: 20px;
+  display: flex; align-items: center; gap: 5px;
+  transition: border-color .2s;
+}
+.skillPillActive { background: rgba(201,168,76,.1); color: var(--oro); border-color: rgba(201,168,76,.3); }
+.skillPillCheck { font-size: 10px; }
+.skillsEditHint { font-size: 11px; color: var(--stone); }
+.inlineBtn { font-size: 11px; color: var(--oro); border-bottom: 1px solid rgba(201,168,76,.3); padding-bottom: 1px; transition: border-color .2s; }
+.inlineBtn:hover { border-color: var(--oro); }
+
+/* Settings — save row */
+.settingsTopRow {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 28px; flex-wrap: wrap; gap: 12px;
+}
+.saveRow { display: flex; align-items: center; gap: 14px; }
+.savedMsg { font-size: 12px; color: var(--sage); font-weight: 500; }
+.saveBtn {
+  padding: 11px 28px;
+  background: var(--obsidian); color: var(--oro-lt);
+  font-size: 11px; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; border-radius: 1px; transition: background .2s;
+}
+.saveBtn:hover:not(:disabled) { background: #2d2926; }
+.saveBtn:disabled { opacity: .6; cursor: not-allowed; }
+
+/* Settings form fields */
+.sf { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.sf:last-child { margin-bottom: 0; }
+.sfRow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sfLabel { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--stone); }
+.sfOptional { font-size: 10px; text-transform: none; letter-spacing: 0; opacity: .65; }
+.sfInput {
+  padding: 11px 13px; border: 1px solid var(--border); background: var(--alabaster);
+  font-size: 13px; color: var(--obsidian); outline: none; border-radius: 1px;
+  transition: border-color .2s;
+}
+.sfInput:focus { border-color: var(--obsidian); }
+.sfSelect {
+  padding: 11px 13px; border: 1px solid var(--border); background: var(--alabaster);
+  font-size: 13px; color: var(--obsidian); outline: none; border-radius: 1px;
+  cursor: pointer; appearance: auto;
+}
+.sfSelect:focus { border-color: var(--obsidian); }
+.sfTextarea {
+  padding: 11px 13px; border: 1px solid var(--border); background: var(--alabaster);
+  font-size: 13px; color: var(--obsidian); outline: none; border-radius: 1px;
+  resize: vertical; line-height: 1.6; transition: border-color .2s;
+}
+.sfTextarea:focus { border-color: var(--obsidian); }
+.sfCharCount { font-size: 10px; color: var(--stone); text-align: right; margin-top: 2px; }
+
+/* Skills settings card */
+.skillsCard { grid-column: 1 / -1; }
+.skillsCardHead { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+.skillsCardDesc { font-size: 12px; color: var(--stone); margin-top: 3px; }
+.skillCountBadge {
+  font-size: 12px; font-weight: 500;
+  background: rgba(201,168,76,.1); color: var(--oro);
+  padding: 4px 14px; border-radius: 20px;
+  border: 1px solid rgba(201,168,76,.25); white-space: nowrap;
+}
+.skillsEditGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.skillEditCard {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px; border: 1.5px solid var(--border);
+  cursor: pointer; border-radius: 1px;
+  transition: border-color .2s, background .2s;
+}
+.skillEditCard:hover { border-color: var(--stone); }
+.skillEditActive { border-color: var(--oro) !important; background: rgba(201,168,76,.05) !important; }
+.skillHiddenCheck { display: none; }
+.skillEditBox {
+  width: 17px; height: 17px; border-radius: 3px;
+  border: 1.5px solid var(--border); flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s, border-color .2s;
+}
+.skillEditActive .skillEditBox { background: var(--oro); border-color: var(--oro); color: var(--obsidian); }
+.skillEditLabel { font-size: 12px; font-weight: 500; margin-bottom: 2px; line-height: 1.3; }
+.skillEditDesc  { font-size: 11px; color: var(--stone); line-height: 1.4; }
+
+/* Danger zone */
+.dangerZone {
+  margin-top: 28px; padding: 24px;
+  border: 1px solid #fecaca; background: #fff9f9;
+}
+.dangerHead { font-family: var(--ff-serif); font-size: 18px; font-weight: 400; color: #b91c1c; margin-bottom: 16px; }
+
+/* Wishlist ATC button */
+.wishAtc {
+  display: block; width: 100%; margin-top: 10px;
+  padding: 10px; text-align: center;
+  background: var(--obsidian); color: var(--oro-lt);
+  font-size: 10px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+  border-radius: 1px; transition: background .2s;
+}
+.wishAtc:hover { background: #2d2926; }
+
+/* Responsive updates */
+@media (max-width: 900px) {
+  .skillsEditGrid { grid-template-columns: repeat(2,1fr); }
+  .sfRow { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .skillsEditGrid { grid-template-columns: 1fr; }
+}
+
+
+@media (max-width: 1100px) { .wishGrid { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 900px) {
+  .pageHead, .tabBar { padding-left: 32px; padding-right: 32px; }
+  .overviewGrid { grid-template-columns: repeat(2,1fr); }
+  .recentOrders, .skillsOverview { grid-column: unset; }
+  .settingsGrid { grid-template-columns: 1fr; }
+  .wishGrid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 600px) {
+  .pageHead { padding: 36px 20px 28px; }
+  .tabBar { padding: 0 20px; }
+  .overviewGrid { grid-template-columns: 1fr 1fr; }
+  .wishGrid { grid-template-columns: 1fr; }
+}

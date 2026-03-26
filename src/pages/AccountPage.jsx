@@ -118,7 +118,7 @@ export default function AccountPage() {
       {/* Tabs */}
       <div className={styles.tabBar}>
         {TABS.map(t => (
-          <button key={t}
+          <button ke
             className={`${styles.tab} ${tab === t ? styles.tabActive : ''}`}
             onClick={() => setTab(t)}
           >{t}</button>

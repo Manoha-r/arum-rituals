@@ -14,7 +14,7 @@ const SORT_OPTIONS = [
 export default function ProductsPage() {
   const [search, setSearch] = useState('')
   const [sort, setSort] = useState('default')
-  const [priceMax, setPriceMax] = useState(250)
+  const [priceMax, setPriceMax] = useState(3000)
 
   const filtered = useMemo(() => {
     let list = [...products]
@@ -59,7 +59,7 @@ export default function ProductsPage() {
         <div className={styles.priceFilter}>
           <span className={styles.filterLabel}>Max price: <strong>₹{priceMax}</strong></span>
           <input
-            type="range" min="30" max="250" step="5"
+            type="range" min="30" max="3000" step="50"
             value={priceMax}
             onChange={e => setPriceMax(Number(e.target.value))}
             className={styles.priceRange}
@@ -87,7 +87,7 @@ export default function ProductsPage() {
           <div className={styles.noResults}>
             <div className={styles.noResultsIcon}>✦</div>
             <p>No products match your search.</p>
-            <button className={styles.resetBtn} onClick={() => { setSearch(''); setPriceMax(250); setSort('default') }}>
+            <button className={styles.resetBtn} onClick={() => { setSearch(''); setPriceMax(3000); setSort('default') }}>
               Clear filters
             </button>
           </div>
